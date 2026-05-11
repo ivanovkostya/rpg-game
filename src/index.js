@@ -1,8 +1,14 @@
-const characters = [
-  { name: 'мечник', health: 10 },
-  { name: 'маг', health: 100 },
-  { name: 'маг', health: 0 },
-  { name: 'лучник', health: 0 },
+import './css/style.css';
+import { play } from './js/game';
+import Warrior from './js/Warrior';
+import Archer from './js/Archer';
+import Mage from './js/Mage';
+
+const players = [
+  new Warrior(0, 'Воин'),
+  new Archer(2, 'Лучник'),
+  new Mage(4, 'Маг')
 ];
 
-characters.filter((item) => item.health > 0);
+const winner = play(players);
+console.log(`Победитель: ${winner.name}`);
